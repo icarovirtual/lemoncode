@@ -23,10 +23,10 @@ class ExtraObjectMixin(object):
 
     def dispatch(self, request, *args, **kwargs):
         """ Prepare the extra object. """
-        self.get_object_adicional()
+        self.get_object_extra()
         return super(ExtraObjectMixin, self).dispatch(request, *args, **kwargs)
 
-    def get_object_adicional(self):
+    def get_object_extra(self):
         """ Try to prepare the extra object . """
         # Re-use the object if it's been loaded
         if self.object_extra is not None:
