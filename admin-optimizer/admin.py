@@ -87,7 +87,7 @@ class ModelAdminOptimizedMixin(object):
     Applies optimization in model listing and pagination.
     """
 
-    ignorar_defer = False
+    ignore_defer = False
     """ Do not alert about queryset optimization. """
 
     def get_changelist(self, request, **kwargs):
@@ -95,7 +95,7 @@ class ModelAdminOptimizedMixin(object):
 
     def get_paginator(self, request, queryset, per_page, orphans=0, allow_empty_first_page=True):
         # Alert about potential optimization
-        if not self.ignorar_defer and not queryset.query.deferred_loading[0]:
+        if not self.ignore_defer and not queryset.query.deferred_loading[0]:
             print("Admin for `%s` does not use `.defer` in its queryset. "
                   "Use this option to further optimize the database requests."
                   % queryset.model._meta.object_name)
