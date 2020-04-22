@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Articles</title>
+</head>
+<body>
+
+<h3>Filter</h3>
+<form method="get">
+  {{ form.as_p }}
+  <button type="submit">Filter</button>
+</form>
+
+<h3>Articles</h3>
+<ul>
+  {% for article in articles %}
+    <li>{{ article.pk }} - {{ article.get_status_display }}</li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>
